@@ -5,13 +5,14 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Building the application...'
+                echo 'Building application...'
             }
         }
 
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                echo 'Running test...'
+                sh 'exit 1'
             }
         }
 
@@ -24,10 +25,10 @@ pipeline {
 
     post {
         success {
-            echo 'Pipeline completed successfully!'
+            echo 'Pipeline SUCCESS'
         }
         failure {
-            echo 'Pipeline failed!'
+            echo 'Pipeline FAILED due to test error'
         }
     }
 }
